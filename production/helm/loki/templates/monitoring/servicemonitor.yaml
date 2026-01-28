@@ -44,7 +44,7 @@ spec:
           targetLabel: job
         {{- if kindIs "string" .clusterLabel }}
         - action: replace
-          replacement: "{{ .clusterLabel | default (include "loki.clusterLabel" $.ctx) }}"
+          replacement: "{{ .clusterLabel | default (include "loki.clusterLabel" $) }}"
           targetLabel: cluster
         {{- end }}
         {{- with .relabelings }}
